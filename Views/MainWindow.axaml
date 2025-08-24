@@ -1,0 +1,412 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DTLFormatterApp.Views.MainWindow"
+        Title="DTL Editor" Width="1000" Height="700"
+        CanResize="True"
+        WindowStartupLocation="CenterScreen">
+
+  <Window.Styles>
+    <!-- Modern Button Style - No Hover Effects -->
+    <Style Selector="Button">
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="Padding" Value="12,8"/>
+      <Setter Property="CornerRadius" Value="6"/>
+      <Setter Property="FontWeight" Value="Medium"/>
+      <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+    <!-- Dark Mode Button Style -->
+    <Style Selector="Button:dark">
+      <Setter Property="Background" Value="#1976D2"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- Global Dark Mode Border Style -->
+    <Style Selector="Border:dark">
+      <Setter Property="Background" Value="#2D2D2D"/>
+    </Style>
+
+    <!-- Navbar Button Style -->
+    <Style Selector="Button.navbar-button">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="Padding" Value="12,8"/>
+      <Setter Property="CornerRadius" Value="6"/>
+      <Setter Property="FontWeight" Value="Medium"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <!-- Dark Mode Navbar Button Style -->
+    <Style Selector="Button.navbar-button:dark">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- TextBox Style -->
+    <Style Selector="TextBox">
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="4"/>
+      <Setter Property="Padding" Value="8,6"/>
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="UseFloatingWatermark" Value="False"/>
+    </Style>
+
+    <!-- Dark Mode TextBox Style -->
+    <Style Selector="TextBox:dark">
+      <Setter Property="Background" Value="#2D2D2D"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="BorderBrush" Value="#616161"/>
+      <Setter Property="CaretBrush" Value="White"/>
+      <Setter Property="SelectionBrush" Value="#616161"/>
+      <Setter Property="SelectionForegroundBrush" Value="White"/>
+    </Style>
+
+    <!-- ComboBox Style -->
+    <Style Selector="ComboBox">
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="4"/>
+      <Setter Property="Padding" Value="8,6"/>
+      <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <!-- Dark Mode ComboBox Style -->
+    <Style Selector="ComboBox:dark">
+      <Setter Property="Background" Value="#2D2D2D"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="BorderBrush" Value="#616161"/>
+    </Style>
+
+    <!-- ComboBox Dropdown Style -->
+    <Style Selector="ComboBoxItem">
+      <Setter Property="Padding" Value="8,4"/>
+    </Style>
+
+    <!-- Dark Mode ComboBox Dropdown Style -->
+    <Style Selector="ComboBoxItem:dark">
+      <Setter Property="Background" Value="#2D2D2D"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- ComboBox Popup Style -->
+    <Style Selector="ComboBox:popup">
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="4"/>
+    </Style>
+
+    <!-- Dark Mode ComboBox Popup Style -->
+    <Style Selector="ComboBox:popup:dark">
+      <Setter Property="Background" Value="#2D2D2D"/>
+      <Setter Property="BorderBrush" Value="#616161"/>
+    </Style>
+
+    <!-- TreeView Style -->
+    <Style Selector="TreeView">
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="6"/>
+      <Setter Property="Padding" Value="8"/>
+      <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <!-- Dark Mode TreeView Style -->
+    <Style Selector="TreeView:dark">
+      <Setter Property="Background" Value="#2D2D2D"/>
+      <Setter Property="BorderBrush" Value="#616161"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- TreeViewItem Style -->
+    <Style Selector="TreeViewItem">
+      <Setter Property="Padding" Value="6,3"/>
+      <Setter Property="Margin" Value="0,1"/>
+      <Setter Property="CornerRadius" Value="4"/>
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <!-- Dark Mode TreeViewItem Style -->
+    <Style Selector="TreeViewItem:dark">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- TreeViewItem Header Style -->
+    <Style Selector="TreeViewItem:header">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <!-- Dark Mode TreeViewItem Header Style -->
+    <Style Selector="TreeViewItem:header:dark">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- TextBlock Style -->
+    <Style Selector="TextBlock">
+      <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <!-- Dark Mode TextBlock Style -->
+    <Style Selector="TextBlock:dark">
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- App Title Style -->
+    <Style Selector="TextBlock.app-title">
+      <Setter Property="FontSize" Value="18"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <!-- Dark Mode App Title Style -->
+    <Style Selector="TextBlock.app-title:dark">
+      <Setter Property="Foreground" Value="#64B5F6"/>
+    </Style>
+
+    <!-- Status Text Style -->
+    <Style Selector="TextBlock.status">
+      <Setter Property="FontSize" Value="12"/>
+      <Setter Property="FontStyle" Value="Italic"/>
+    </Style>
+
+    <!-- Dark Mode Status Text Style -->
+    <Style Selector="TextBlock.status:dark">
+      <Setter Property="Foreground" Value="#BDBDBD"/>
+    </Style>
+
+    <!-- Custom Button Styles for Add/Remove Buttons -->
+    <Style Selector="Button.add-button">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="CornerRadius" Value="0"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+      <Setter Property="FontSize" Value="20"/>
+      <Setter Property="Padding" Value="4,2"/>
+      <Setter Property="HorizontalAlignment" Value="Center"/>
+      <Setter Property="VerticalAlignment" Value="Center"/>
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="Foreground" Value="#4CAF50"/>
+    </Style>
+
+    <!-- Dark Mode Add Button Style -->
+    <Style Selector="Button.add-button:dark">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="#66BB6A"/>
+    </Style>
+
+    <Style Selector="Button.remove-button">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="CornerRadius" Value="0"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+      <Setter Property="FontSize" Value="20"/>
+      <Setter Property="Padding" Value="4,2"/>
+      <Setter Property="HorizontalAlignment" Value="Center"/>
+      <Setter Property="VerticalAlignment" Value="Center"/>
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="Foreground" Value="#F44336"/>
+    </Style>
+
+    <!-- Dark Mode Remove Button Style -->
+    <Style Selector="Button.remove-button:dark">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="#EF5350"/>
+    </Style>
+
+    <!-- Enhanced TreeView Styling -->
+    <Style Selector="TreeViewItem:haschildren">
+      <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!-- Dark Mode TreeViewItem HasChildren Style -->
+    <Style Selector="TreeViewItem:haschildren:dark">
+      <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!-- Rule Header Styling -->
+    <Style Selector="TreeViewItem.rule-header">
+      <Setter Property="BorderThickness" Value="0,0,0,1"/>
+      <Setter Property="Padding" Value="8,6"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!-- Dark Mode Rule Header Styling -->
+    <Style Selector="TreeViewItem.rule-header:dark">
+      <Setter Property="Background" Value="#2D2D2D"/>
+      <Setter Property="BorderBrush" Value="#616161"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- Clause Header Styling -->
+    <Style Selector="TreeViewItem.clause-header">
+      <Setter Property="Padding" Value="12,4"/>
+      <Setter Property="FontWeight" Value="Medium"/>
+    </Style>
+
+    <!-- Dark Mode Clause Header Styling -->
+    <Style Selector="TreeViewItem.clause-header:dark">
+      <Setter Property="Background" Value="#3D3D3D"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- Property/Operator/Value Styling -->
+    <Style Selector="TreeViewItem.property-item">
+      <Setter Property="Padding" Value="16,3"/>
+      <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <!-- Dark Mode Property/Operator/Value Styling -->
+    <Style Selector="TreeViewItem.property-item:dark">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <!-- Operator Arrow Styling -->
+    <Style Selector="TreeViewItem.operator-arrow">
+      <Setter Property="Padding" Value="8,2"/>
+      <Setter Property="FontWeight" Value="Medium"/>
+      <Setter Property="FontStyle" Value="Italic"/>
+    </Style>
+
+    <!-- Dark Mode Operator Arrow Styling -->
+    <Style Selector="TreeViewItem.operator-arrow:dark">
+      <Setter Property="Background" Value="#2D2D2D"/>
+      <Setter Property="Foreground" Value="#FFB74D"/>
+    </Style>
+  </Window.Styles>
+
+  <Grid RowDefinitions="Auto,*">
+    
+    <!-- Navbar -->
+    <Border Grid.Row="0" 
+            CornerRadius="0" 
+            Padding="20,12" 
+            BoxShadow="0 2 8 0 #20000000">
+      <Grid ColumnDefinitions="*,Auto">
+        <TextBlock Grid.Column="0"
+                   Text="DTL Rule Editor" 
+                   FontSize="18" 
+                   FontWeight="Bold" 
+                   VerticalAlignment="Center"/>
+        <Button Grid.Column="1"
+                x:Name="ThemeToggleButton"
+                Content="☀"
+                Click="OnToggleTheme"
+                Classes="navbar-button"
+                MinWidth="40"
+                MinHeight="32"/>
+      </Grid>
+    </Border>
+
+    <!-- Main Content -->
+    <Grid Grid.Row="1" Margin="20" RowDefinitions="Auto,Auto,*,Auto">
+      
+      <!-- Header Section -->
+      <Border Grid.Row="0" 
+              CornerRadius="8" 
+              Padding="20,16" 
+              Margin="0,0,0,16"
+              BoxShadow="0 2 8 0 #20000000">
+        <StackPanel>
+          <TextBlock Text="Enter your DTL rules below and use the interactive editor to modify them" 
+                     FontSize="14"/>
+        </StackPanel>
+      </Border>
+
+      <!-- Input Section -->
+      <Border Grid.Row="1" 
+              CornerRadius="8" 
+              Padding="16" 
+              Margin="0,0,0,16"
+              BoxShadow="0 2 8 0 #20000000">
+        <StackPanel>
+          <TextBlock Text="Input DTL Rules" 
+                     FontSize="16" 
+                     FontWeight="SemiBold" 
+                     Margin="0,0,0,8"/>
+          <Grid ColumnDefinitions="*,Auto,Auto">
+            <TextBox Grid.Column="0"
+                     x:Name="InputBox" 
+                     AcceptsReturn="False" 
+                     Watermark="Enter DTL rules here (e.g., Rule|country|in|[&quot;PT&quot;,&quot;DE&quot;]|AND|appversion|gte|5.9)..." 
+                     TextWrapping="Wrap"
+                     BorderThickness="1"
+                     CornerRadius="4"
+                     Padding="8,6"
+                     FontSize="14"
+                     UseFloatingWatermark="False"
+                     MinHeight="32"
+                     MaxHeight="32"
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                     Margin="0,0,8,0"/>
+            <Button Grid.Column="1"
+                    Content="Load DTL" 
+                    Click="OnLoadDTL" 
+                    MinWidth="100"
+                    VerticalAlignment="Center"
+                    Margin="0,0,8,0"/>
+            <Button Grid.Column="2"
+                    Content="Create from scratch" 
+                    Click="OnCreateFromScratch" 
+                    MinWidth="120"
+                    VerticalAlignment="Center"/>
+          </Grid>
+        </StackPanel>
+      </Border>
+
+      <!-- Controls Section -->
+      <Border Grid.Row="2" 
+              CornerRadius="8" 
+              Padding="16" 
+              Margin="0,0,0,16"
+              BoxShadow="0 2 8 0 #20000000">
+        <Grid RowDefinitions="Auto,*">
+          
+          <!-- Control Buttons -->
+          <StackPanel Grid.Row="0" 
+                      Orientation="Horizontal" 
+                      Margin="0,0,0,16" 
+                      Spacing="12">
+            <Button x:Name="EditModeButton" 
+                    Content="Edit Mode" 
+                    Click="OnToggleEditMode" 
+                    MinWidth="100"
+                    IsEnabled="False"/>
+            <Button x:Name="CopyFormattedButton"
+                    Content="Copy Formatted Rules" 
+                    Click="OnCopyFormattedRules" 
+                    MinWidth="150"
+                    IsEnabled="False"/>
+            <Button x:Name="ClearButton"
+                    Content="Clear" 
+                    Click="OnClearAll" 
+                    MinWidth="80"
+                    IsEnabled="False"/>
+          </StackPanel>
+
+          <!-- TreeView -->
+          <Border Grid.Row="1" 
+                  CornerRadius="6" 
+                  Padding="12">
+            <TreeView x:Name="RulesTreeView" 
+                      Background="Transparent" 
+                      BorderThickness="0"/>
+          </Border>
+        </Grid>
+      </Border>
+
+      <!-- Status Section -->
+      <Border Grid.Row="3" 
+              CornerRadius="8" 
+              Padding="16"
+              BoxShadow="0 2 8 0 #20000000">
+        <TextBlock x:Name="StatusText" 
+                   Text="Ready" 
+                   Classes="status"/>
+      </Border>
+
+    </Grid>
+  </Grid>
+</Window>

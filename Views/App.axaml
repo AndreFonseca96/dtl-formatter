@@ -1,0 +1,10 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="DTLFormatterApp.Views.App"
+             RequestedThemeVariant="Dark">
+             <!-- "Dark" ThemeVariant makes the app start in dark mode by default. "Light" or "Default" are other available options. -->
+
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+</Application>
