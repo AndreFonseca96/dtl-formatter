@@ -199,10 +199,6 @@ dotnet publish -c Release -r win-x64 --self-contained
 - Write self-documenting code
 - Add comments for complex logic
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🐛 Issues and Support
 
 If you encounter any issues or have questions:
@@ -211,6 +207,10 @@ If you encounter any issues or have questions:
 2. Create a new issue with detailed information
 3. Include steps to reproduce the problem
 4. Provide system information and error messages
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
